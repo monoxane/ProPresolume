@@ -25,7 +25,7 @@ const defaultConfig = {
   }
 }
 var settings
-const osConfigDir = process.env.APPDATA || (process.platform === 'darwin' ? process.env.HOME + 'Library/Application Support' : process.env.HOME + '/.config')
+const osConfigDir = process.env.APPDATA || (process.platform === 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME + '/.config')
 const proPresolumeConfigDir = path.join(osConfigDir, 'propresolume')
 const proPresolumeConfigFile = path.join(proPresolumeConfigDir, 'config.yml')
 debug(`Loading Config: ${proPresolumeConfigFile}`)
