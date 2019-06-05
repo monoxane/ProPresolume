@@ -8,6 +8,7 @@
     "debug": "DEBUG=* electron .",
     "start": "node src/index.js",
     "dist": "electron-builder",
+    "postinstall": "electron-rebuild",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oliver Herrmann",
