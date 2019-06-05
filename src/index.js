@@ -5,7 +5,6 @@ const parseXML = require('./lib/parsexml')
 const ProPres = require('./lib/propres')
 const Resolume = require('./lib/resolume')
 const system = require('./lib/emitter')
-const config = require('./lib/config')
 
 require('./electron')
 require('./express')

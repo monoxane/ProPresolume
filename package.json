@@ -2,10 +2,12 @@
   "name": "propreslume",
   "version": "1.0.0",
   "description": "Send ProPresenter Text Stream to Resolume Text Box",
+  "repository": "https://github.com/monoxane/ProPresolume/",
   "main": "src/index.js",
   "scripts": {
     "debug": "DEBUG=* electron .",
     "start": "node src/index.js",
+    "dist": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oliver Herrmann",
@@ -22,11 +24,21 @@
   "devDependencies": {
     "electron": "^5.0.2",
     "electron-rebuild": "^1.8.5",
+    "electron-builder": "^20.43.0",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0"
+  },
+  "build": {
+    "appId": "com.boreal.systems.propresolume",
+    "productName": "ProPresolume",
+    "mac": {
+      "category": "your.app.category.type",
+      "target": "default",
+      "type": "development"
+    }
   }
 }

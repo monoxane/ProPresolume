@@ -4,7 +4,6 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 const _ = require('lodash')
 const yamlConfig = require('./yaml-config')
-const system = require('./emitter')
 
 const defaultConfig = {
   'default': {
