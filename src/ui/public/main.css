@@ -1,0 +1,61 @@
+@import url("./fonts/webfont.css");
+
+/* Solarized Dark Colours in Variable Form */
+:root {
+    --base03: #002b36;
+    --base02: #073642;
+    --base01: #586e75;
+    --base00: #657b83;
+    --base0: #839496;
+    --base1: #93a1a1;
+    --base2: #eee8d5;
+    --base3: #fdf6e3;
+    --yellow: #b58900;
+    --orange: #cb4b16;
+    --red: #dc322f;
+    --magenta: #d33682;
+    --violet: #6c71c4;
+    --blue: #268bd2;
+    --cyan: #2aa198;
+    --green: #859900;
+}
+
+body {
+    background-color: var(--base03);
+    color: var(--base00);
+    font-family: "Iosevka Web";
+    height: 100%;
+    -webkit-user-select: none;
+}
+
+input, textarea, button {
+    -webkit-app-region: no-drag;
+}
+
+input, textarea {
+    align-self: right;
+    background-color: var(--base02);
+    color: var(--base00);
+    border: none;
+}
+
+
+.header {
+    text-align: center;
+}
+
+  .close {
+    background-color: #df6158;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    margin-left: 5px;
+  }
+  .minimize {
+    background-color: #eebc3c;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+  }

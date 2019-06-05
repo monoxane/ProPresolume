@@ -1,0 +1,18 @@
+{
+    "ui": { 
+        "port": 52000
+    },
+    "propres": { 
+        "host": "10.0.1.9",
+        "port": 52001,
+        "pass": "Password" 
+    },
+    "resolume": { 
+        "host": "10.0.1.9",
+        "port": 7000,
+        "paths": [
+            "/composition/layers/1/clips/1/video/source/params/text",
+            "/composition/layers/2/clips/1/video/source/params/text"
+        ]
+    }
+}

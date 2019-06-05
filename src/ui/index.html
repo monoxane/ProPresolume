@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ProPresolume</title>
+    <style>
+        @import url('/public/main.css');
+    </style>
+  </head>
+  <body style="-webkit-app-region: drag">
+    <div class="container">
+        <div class="control">
+            <button class="close" onclick="remote.BrowserWindow.getFocusedWindow().close()"></button>
+            <button class="minimize" onclick="remote.BrowserWindow.getFocusedWindow().minimize()"></button>
+        </div>
+        <div class="header">
+            <h1>ProPresolume</h1>
+            <h2>UI CURRENTLY DOES NOTHING</h2>
+        </div>
+        <div class="ProPresenter">
+            <h2>ProPresenter:</h2>
+            <form action="/api/v1/set/propres" method="get" target="_top" onsubmit="return false">
+                IP: <input type="text" name="propresip"><br />
+                Stage Display Port: <input type="text" name="propresport"><br />
+                Password: <input type="text" name="proprespass"><br />
+                <input type="submit" value="Update"><br />
+            </form>
+        </div>
+        <div class="Resolume">
+            <h2>Resolume:</h2>
+            <form action="/api/v1/set/resolume" method="get" onsubmit="return false">
+                <label>IP:</label> <input type="text" name="resip" placeholder="10.0.0.6"><br>
+                <label>OSC Port:</label> <input type="text" name="resport"><br>
+                <label>Clips (One Per Line):</label> <textarea name="resclips" cols="40" rows="5"></textarea><br>
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+    <script>
+       const { remote } = require('electron')
+    </script>
+  </body>
+</html>
