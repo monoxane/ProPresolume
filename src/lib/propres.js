@@ -1,6 +1,8 @@
 const config = require('./config')
 const net = require('net')
 const debug = require('debug')('propresolume:propres')
+const util = require('util')
+const setTimeoutPromise = util.promisify(setTimeout)
 const system = require('./emitter')
 
 class Client {
@@ -14,11 +16,15 @@ class Client {
   init () {
     var client = this
 
-    client.socket.connect(client.port, client.address, () => {
-      debug(`Connecting to: ${client.address}:${client.port}`)
-      client.socket.write(`<StageDisplayLogin>${client.pass}</StageDisplayLogin>\r\n`)
-      debug('Connected')
-    })
+    function connect () {
+      client.socket.connect(client.port, client.address, () => {
+        debug(`Connecting to: ${client.address}:${client.port}`)
+        client.socket.write(`<StageDisplayLogin>${client.pass}</StageDisplayLogin>\r\n`)
+        debug('Connected')
+      })
+    }
+
+    connect()
 
     client.socket.on('data', (data) => {
       // debug(`Client received: ${data}`)
@@ -28,6 +34,8 @@ class Client {
     client.socket.on('close', () => {
       system.emit('xmlUpdate', '')
       debug('Client closed')
+      setTimeoutPromise(10000).then(() => { connect() })
+      // setTimeout(10000, connect())
     })
 
     client.socket.on('error', (err) => {

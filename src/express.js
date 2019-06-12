@@ -7,20 +7,24 @@ const system = require('./lib/emitter')
 const app = express()
 const port = config.get('ui.port')
 
-app.use('/public', express.static(path.join(__dirname, 'ui', 'public')))
+// ROUTES FOR OUR API
+// =============================================================================
+var router = express.Router() // get an instance of the express Router
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/ui/index.html')))
-
-app.get('/api/v1/set/propres', function (req, res) {
-  res.send(`Resolume Host: ${config.resolume.host}`)
+// middleware to use for all requests
+router.use(function (req, res, next) {
+  // do logging
+  debug('Something is happening.')
+  next() // make sure we go to the next routes and don't stop here
 })
 
-// /api/v1/set/propres?propresip=10.0.1.9&propresport=2555&proprespass=SD
-
-app.get('/api/v1/set/resolume', function (req, res) {
-  res.send(`Resolume Host: ${config.resolume.host}`)
+// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/', function (req, res) {
+  res.json({ message: 'hooray! welcome to our api!' })
 })
 
-system.on('configLoaded', function () {
-  app.listen(port, () => debug(`Example app listening on port ${port}!`))
-})
+// more routes for our API will happen here
+
+// REGISTER OUR ROUTES -------------------------------
+// all of our routes will be prefixed with /api
+app.use('/api', router)

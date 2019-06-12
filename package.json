@@ -6,10 +6,11 @@
   "main": "src/index.js",
   "scripts": {
     "debug": "DEBUG=* electron .",
-    "start": "node src/index.js",
+    "start": "electron .",
     "dist": "electron-builder",
     "postinstall": "electron-rebuild",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fixperms": "sudo chown root node_modules/electron/dist/chrome-sandbox && sudo chmod 4755 node_modules/electron/dist/chrome-sandbox"
   },
   "author": "Oliver Herrmann",
   "license": "MIT",
