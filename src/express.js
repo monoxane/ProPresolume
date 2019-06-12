@@ -1,3 +1,19 @@
+/*
+ * This file is part of the ProPresolume project
+ * Copyright (c) 2019 Oliver Herrmann
+ * Authors: Oliver Herrmann <oliver@monoxane.com>
+ *
+ * This program is free software.
+ * You should have received a copy of the MIT licence along with
+ * this program.
+ *
+ * You can be released from the requirements of the license by purchasing
+ * a commercial license. Buying such a license is mandatory as soon as you
+ * develop commercial activities involving the ProPresolume software without
+ * disclosing the source code of your own applications.
+ *
+ */
+
 const debug = require('debug')('propresolume:express')
 const path = require('path')
 const express = require('express')
@@ -7,24 +23,17 @@ const system = require('./lib/emitter')
 const app = express()
 const port = config.get('ui.port')
 
-// ROUTES FOR OUR API
-// =============================================================================
-var router = express.Router() // get an instance of the express Router
+var router = express.Router() // Init router
 
-// middleware to use for all requests
 router.use(function (req, res, next) {
-  // do logging
-  debug('Something is happening.')
-  next() // make sure we go to the next routes and don't stop here
+  debug(req, res) // Debug routes
+  next() // Keep processing
 })
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// API base route and a silly status indicator to fill it up
 router.get('/', function (req, res) {
-  res.json({ message: 'hooray! welcome to our api!' })
+  res.json({ status: 200 })
 })
 
-// more routes for our API will happen here
-
-// REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
+// Config API routes
 app.use('/api', router)
