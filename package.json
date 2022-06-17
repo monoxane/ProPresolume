@@ -24,7 +24,7 @@
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "electron": "^5.0.2",
+    "electron": "^15.5.5",
     "electron-rebuild": "^1.8.5",
     "electron-builder": "^20.43.0",
     "eslint": "^5.16.0",
