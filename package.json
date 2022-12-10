@@ -17,7 +17,7 @@
   "dependencies": {
     "config": "^3.1.0",
     "debug": "^4.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jsonfile": "^5.0.0",
     "lodash": "^4.17.11",
     "osc": "^2.3.1",
